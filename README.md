@@ -2,6 +2,8 @@
 Для ревью различные спорные моменты в проекте пометил с помощью TODO.
 И нужно ли добавлять .env.example в git?
 
+Надеюсь проект запушил без потерь из первого репозитория
+
 ## Run with Docker Compose
 1. Create .env with all settings (see .env.example)
 2. Collect static with `python manage.py collectstatic`
