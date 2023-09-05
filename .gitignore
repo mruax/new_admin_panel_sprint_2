@@ -1,11 +1,31 @@
-### Example user template template
-### Example user template
-
 # IntelliJ project files
-.idea
+../.idea
 *.iml
 out
 gen
+venv
+.idea
+
+# Enviroment variables
+.env
+.env.example
+
+# Pytest
+tests/check_consistency/.pytest_cache
+__pycache__
+*.pyc
+
+# Logs
+logs
+*.log
+
+# Git:
+.git
+
+# Other files
+postgresql/data/output.csv
+pgdata
+
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -65,7 +85,6 @@ cover/
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -114,7 +133,6 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
 .venv
 env/
 venv/
@@ -146,3 +164,9 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# Static and media files
+static
+media
+
+# Postgres db
+pgadmin-data
