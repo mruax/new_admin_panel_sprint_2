@@ -39,9 +39,7 @@ class MoviesApiMixin:
         return queryset
 
     def render_to_response(self, context, **response_kwargs):
-        # TODO: можно ли  использовать dumps (к примеру только в debug) или это повысит нагрузку?
-        # и связано ли это с примером вывода в swagger
-        return JsonResponse(context, json_dumps_params={'indent': 4})
+        return JsonResponse(context)
 
 
 class MoviesListApi(MoviesApiMixin, BaseListView):

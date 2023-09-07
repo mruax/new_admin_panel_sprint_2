@@ -1,28 +1,27 @@
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
-    'filters': {
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
-        }
-    },
     'formatters': {
         'default': {
             'format': '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]',
         },
     },
     'handlers': {
-        'debug-console': {
+        'console': {
+            'level': 'INFO',  # INFO уровень в продакшене
             'class': 'logging.StreamHandler',
             'formatter': 'default',
-            'filters': ['require_debug_true'],
         },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',  # INFO уровень для корневого логгера
     },
     'loggers': {
         'django.db.backends': {
-            'level': 'DEBUG',
-            'handlers': ['debug-console'],
+            'level': 'INFO',  # Уровень логирования для баз данных
+            'handlers': ['console'],
             'propagate': False,
-        }
+        },
     },
 }

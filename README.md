@@ -1,8 +1,5 @@
 # movie cinema webserver
-Для ревью различные спорные моменты в проекте пометил с помощью TODO.
-И нужно ли добавлять .env.example в git?
 
-Надеюсь проект запушил без потерь из первого репозитория
 
 ## Run with Docker Compose
 1. Create .env with all settings (see .env.example)
@@ -39,6 +36,12 @@ Sometimes may cause errors in postgres_model.py. Use scheme name on INSERT opera
 If Docker outputs errors about permissions then it may be caused by following things (most of):
 * Unnamed volumes in docker-compose.yml
 * Incorrect chown/chmod on some directories (ex. pgdata). Use your user + docker/postgres (or other group) and 700 rights (or even more protected) because some directories need to be chown by user who started server.
+
+Возможные записи в сервисе db:
+- "pgdata:/var/lib/postgresql/data"
+- ./pgdata:/var/lib/postgresql/data  # (instead use unnamed volume when troubles with permissions)
+
+Также тк compose ищет переменные, указанные через $ в .env-файле по умолчанию рядом с .yml, необходимо указать его в корневой папке.
 
 ### Paths
 There are plenty of errors caused by incorrect paths (locally or in Docker). Be careful with Docker Compose volumes and .env file.
